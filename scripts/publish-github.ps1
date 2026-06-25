@@ -31,13 +31,14 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 $remote = git remote get-url origin 2>$null
+if ($LASTEXITCODE -ne 0) { $remote = $null }
 if (-not $remote) {
   gh repo create shop-logbook --public --source=. --remote=origin --push
 } else {
   git push -u origin main
 }
 
-gh api --method PUT "repos/$owner/shop-logbook/pages" -f build_type=workflow | Out-Null
+gh api --method POST "repos/$owner/shop-logbook/pages" -f build_type=workflow 2>$null | Out-Null
 Write-Host ""
 Write-Host "Done. GitHub Actions will deploy in ~1-2 minutes."
 Write-Host "Live at: $siteUrl"

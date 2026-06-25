@@ -13,7 +13,7 @@ export default defineConfig({
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg'],
+      includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
       manifest: {
         name: 'Shop Logbook',
         short_name: 'Logbook',
@@ -23,6 +23,12 @@ export default defineConfig({
         display: 'standalone',
         start_url: base,
         icons: [
+          {
+            src: `${base}apple-touch-icon.png`,
+            sizes: '180x180',
+            type: 'image/png',
+            purpose: 'any',
+          },
           {
             src: `${base}favicon.svg`,
             sizes: 'any',

@@ -2,7 +2,7 @@
 
 ## Live URL (GitHub Pages)
 
-**https://YOUR_USERNAME.github.io/shop-logbook/**
+**https://kaiprojs.github.io/shop-logbook/**
 
 Legacy Netlify (until Cayden migrates): **https://logbookcayden.netlify.app**
 

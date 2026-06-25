@@ -40,7 +40,7 @@ Data is saved in the browser's **local storage** on the device. No account or se
 
 ## Hosting
 
-**Live (GitHub Pages):** https://YOUR_USERNAME.github.io/shop-logbook/
+**Live (GitHub Pages):** https://kaiprojs.github.io/shop-logbook/
 
 See **[GITHUB.md](./GITHUB.md)** for deploy and Cayden migration steps.
 

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Logbook — QR</title>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+        max-width: 28rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+        text-align: center;
+        color: #1c1c1e;
+      }
+      img {
+        width: 280px;
+        height: 280px;
+        border-radius: 12px;
+        border: 1px solid #e5e5ea;
+      }
+      a {
+        color: #007aff;
+        word-break: break-all;
+      }
+      ol {
+        text-align: left;
+        line-height: 1.6;
+      }
+      .warn {
+        background: #fff4e5;
+        border: 1px solid #ff9500;
+        border-radius: 8px;
+        padding: 1rem;
+        margin: 1rem 0;
+        font-size: 0.9rem;
+      }
+    </style>
+    <script>
+      // Update this after your first Cloudflare Pages deploy.
+      const SITE_URL = 'https://logbookcayden.pages.dev'
+    </script>
+  </head>
+  <body>
+    <h1>Shop Logbook</h1>
+    <p>Scan to open on his phone:</p>
+    <img id="qr" alt="QR code for Shop Logbook" width="280" height="280" />
+    <p><a id="link" href="#"></a></p>
+    <h2>iPhone setup</h2>
+    <ol>
+      <li>Scan the QR (or tap the link)</li>
+      <li>Open in <strong>Safari</strong> — wait a few seconds online</li>
+      <li>Share → <strong>Add to Home Screen</strong> → Add</li>
+      <li>Use the <strong>Logbook</strong> icon (works offline after first visit)</li>
+      <li>Today tab → <strong>Backup now</strong> → save to Files or iCloud</li>
+    </ol>
+    <script>
+      const link = document.getElementById('link')
+      const qr = document.getElementById('qr')
+      link.href = SITE_URL
+      link.textContent = SITE_URL
+      qr.src =
+        'https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=' +
+        encodeURIComponent(SITE_URL)
+    </script>
+  </body>
+</html>

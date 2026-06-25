@@ -4,11 +4,18 @@ import { Resvg } from '@resvg/resvg-js'
 
 const root = join(import.meta.dirname, '..')
 const svg = readFileSync(join(root, 'public', 'favicon.svg'))
-const resvg = new Resvg(svg, {
-  fitTo: { mode: 'width', value: 180 },
-  background: '#f6f4ef',
-})
-const png = resvg.render().asPng()
 
-writeFileSync(join(root, 'public', 'apple-touch-icon.png'), png)
-console.log('Wrote public/apple-touch-icon.png (180x180)')
+const sizes = [
+  { name: 'apple-touch-icon.png', size: 180 },
+  { name: 'icon-192.png', size: 192 },
+  { name: 'icon-512.png', size: 512 },
+]
+
+for (const { name, size } of sizes) {
+  const resvg = new Resvg(svg, {
+    fitTo: { mode: 'width', value: size },
+    background: '#f6f4ef',
+  })
+  writeFileSync(join(root, 'public', name), resvg.render().asPng())
+  console.log(`Wrote public/${name} (${size}x${size})`)
+}
